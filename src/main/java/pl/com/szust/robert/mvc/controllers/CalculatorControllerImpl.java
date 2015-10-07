@@ -17,7 +17,11 @@ import pl.com.szust.robert.rpn.exceptions.RpnInvalidExpressionException;
 import pl.com.szust.robert.rpn.exceptions.UnsupportedExpressionElementException;
 
 @Controller
-public class CalculatorRestController {
+public class CalculatorControllerImpl {
+
+/* (non-Javadoc)
+ * @see pl.com.szust.robert.mvc.controllers.CalculatorController#calculate(pl.com.szust.robert.mvc.model.CalculateRequest)
+ */
   @ResponseBody
   @RequestMapping(value = "/calculator", method = RequestMethod.POST)
   public CalculateResponse calculate(@RequestBody CalculateRequest request) throws UnsupportedExpressionElementException, RpnInvalidExpressionException {
