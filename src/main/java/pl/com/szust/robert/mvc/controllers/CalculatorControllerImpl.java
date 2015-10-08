@@ -37,7 +37,7 @@ public class CalculatorControllerImpl {
   }
   
   @RequestMapping(value = "/calculator", method = RequestMethod.GET)
-  public String displayForm(HttpServletRequest request) {
+  public String displayForm() {
     return "index";
   }
 }
