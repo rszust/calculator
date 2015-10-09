@@ -5,6 +5,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -35,6 +36,13 @@ public class MethodInvocationAspect {
   public void logCalculateResponse(CalculateResponse response) {
 	 logger.info("Calculated response is " + response.getResponse()); 
   }
+  
+  @AfterThrowing(value = "@within(org.springframework.stereotype.Controller) && execution( pl.com.szust.robert.mvc.model.CalculateResponse calculate(..) )", throwing = "exception")
+  public void logException(Exception exception) {
+	  logger.info("Exception happened during processign expression: " + exception.getMessage());	  
+  }
+  
+  
   
   @Around(value = "pl.com.szust.robert.mvc.aspects.BeanPointcut.isPublic() && pl.com.szust.robert.mvc.aspects.SystemArchitecture.inControllerLayer()")
   public Object controllerMethodInvocation(ProceedingJoinPoint joinPoint) throws Throwable {
