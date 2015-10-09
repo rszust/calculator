@@ -11,7 +11,10 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
  */
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
-
+  /**
+   * Spring boot application entry point.
+   * @param args
+   */
   public static void main(String...args) {
     SpringApplication.run(new Object[]{ Application.class }, args);
   }
