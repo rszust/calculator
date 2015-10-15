@@ -17,6 +17,9 @@ public class Application extends SpringBootServletInitializer {
    */
   public static void main(String...args) {
     SpringApplication.run(new Object[]{ Application.class }, args);
+    for(int i = 0; i < 10; i++) {
+    	System.out.println("Change");
+    }
   }
   
   @Override
