@@ -20,6 +20,7 @@ public class Application extends SpringBootServletInitializer {
     for(int i = 0; i < 10; i++) {
     	System.out.println("Change");
     }
+    System.out.println("Some text");
   }
   
   @Override
